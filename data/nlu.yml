@@ -1,0 +1,138 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello I'm [sara](name)
+    - hello I'm [mahmod](name)
+    - hi
+    - hello there
+    - Hi, I am [Omar](name)
+    - good morning, I am [youssef](name)
+    - good evening
+    - moin
+    - hey there [Amr](name)
+    - hey there [Ahmed](name)
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hello there [Eslam](name)
+    - hi there [eslam](name)
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - good bye
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thanks ,bye
+    - thanks bye
+- intent: affirm
+  examples: |
+    - [yes](confirmation)
+    - [y](confirmation)
+    - [indeed](confirmation)
+    - [of course](confirmation)
+    - [that sounds good](confirmation)
+    - [correct](confirmation)
+    - [sure](confirmation)
+    - [ok](confirmation)
+    - [why not](confirmation)
+    - [ok great](confirmation)
+    - [fine](confirmation)
+    - [pretty good](confirmation)
+    - [more or less](confirmation)
+    - [yes please](confirmation)
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - Nope
+    - Not this time
+    - I don't think so
+    - don't like that
+    - I don't need that
+    - no way
+    - Nah
+    - not really
+    - Maybe another time
+- intent: make_an_order
+  examples: |
+    - I want to make an order
+    - I want to order a [sandwich](items)
+    - I want to order a breakfast
+    - I want a [pie](items)
+    - I want a [cake](items)
+    - I want to order a drink
+    - I want to order a meal
+    - I need to order dinner
+    - I want an [juice](items)
+    - I want a [sandwich](items)
+    - I want [soft drink](items)
+- intent: inform
+  examples: |
+    - I want a [sandwich](items)
+    - I want a [pie](items) [small](size) size
+    - I want a [cake](items)
+    - I want an [orange juice](items)
+    - I want [soft drink](items)
+    - I want a [cola](items) [large](size) size
+    - I want [pepsi](items)
+    - I want [two](amount) [sandwich](items)
+    - I want [beef sandwich](items)[double](type)
+    - I want [chicken sandwich](items)
+    - I want [big sandwich](items) and [pepsi](items)
+    - I want [cola](items) and [potatos](items)
+    - I want [3](amount) [big teasty](items) [combo](type) [large](size) and [soft drink](items)
+    - my address is: [6 mslma bn makhled street, flat 2, floor 1](address)
+    - [101 elmanial street, flat 4, floor 2](address)
+    - [8 faisal street, floor 8, flat 9](address)
+    - [7 elsadat street elmalek elsaleh, floor 10, flat 5](address)
+    - The address is [102 l elbwaba elrb3a , flat 5, floor 2](address)
+    - I want [five](seatcount) seats
+    - I want a table with [2](seatcount) seats
+    - i want a table for [3](seatcount) persons
+    - I want to book a table at [6pm](bookingtime)
+    - I want it be at [9pm](bookingtime)
+    - at [5pm](bookingtime)
+    - I want a beff [sandwich](items) [medium](size) size and [cola](items)
+    - [16 gamal abdelnaser street, 2floor , appartment 3](address)
+    - i want it at [6pm](bookingtime)
+    - [2](seatcount): Non A
+    - [5pm](bookingtime)
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - Who am I talking to?
+    - Who is with me?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: bill
+  examples: |
+    - What is the bill?
+    - what is the total price ?
+    - how much ?
+    - what is the total cost?
+    - HM ?
+    - what is the total price?
+- intent: booking
+  examples: |
+    - what are the options availbe to book?
+    - are there AC or Non Ac available?
+    - are there AC available?
+    - is there any rooms available at night?
+    - I want a table for [3](seatcount) persons
+    - I want a table for [3](seatcount) persons in [not AC](section) section
+    - I want to book a table for [5](seatcount) persons
+    - I want to book a table with [5](seatcount) seats
+    - I want to book a table in room with [AC](section)
+    - i want to book a table for [4](seatcount) persons
+    - i want ac section

@@ -1,0 +1,148 @@
+version: "2.0"
+
+stories:
+- story: happy path
+  steps:
+  - intent: greet
+    entities:
+    - name: "Ali"
+  - action: utter_greet
+  - intent: make_an_order
+  - action: utter_order
+  - intent: inform
+    entities:
+    - items: "pie"
+    - amount: "4"
+    - size: "large"
+  - action: utter_address
+  - intent: inform
+    entities:
+    - address: "6 faisal street, floor 5, flat 9"
+  - action: utter_order_ready
+  - intent: bill
+  - action: utter_bill
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: sad path 1
+  steps:
+  - intent: make_an_order
+  - action: utter_greet
+  - action: utter_order
+  - intent: inform
+    entities:
+    - items: "pizza"
+    - amount: "2"
+    - size: "small"
+  - action: utter_address
+  - intent: inform
+    entities:
+    - address: "18 gadal street, floor 5, flat 6"
+  - action: utter_order_ready
+  - intent: bill
+  - action: utter_bill
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: booking path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: booking
+    entities:
+    - seatcount: "5"
+    - section: "AC"
+  - action: utter_ask_bookingtime
+  - intent: inform
+    entities:
+    - bookingtime: "5pm"
+  - action: utter_ask_confirm_booking
+  - intent: affirm
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: booking path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: booking
+  - action: utter_ask_category
+  - action: utter_ask_seatcount
+  - intent: inform
+    entities:
+    - seatcount: "7"
+  - action: utter_ask_bookingtime
+  - intent: inform
+    entities:
+    - bookingtime: "7pm"
+  - action: utter_ask_confirm_booking
+  - intent: affirm
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: faq
+  steps:
+  - intent: booking
+  - action: utter_ask_category
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+    entities:
+    - name: Eslam
+  - slot_was_set:
+    - name: Eslam
+  - action: utter_greet
+  - intent: inform
+    entities:
+    - items: sandwich
+    - size: medium
+    - items: cola
+  - slot_was_set:
+    - items:
+      - sandwich
+      - cola
+  - action: utter_address
+  - intent: inform
+    entities:
+    - address: 16 gamal abdelnaser street, 2floor , appartment 3
+  - action: utter_order_ready
+  - intent: bill
+  - action: utter_bill
+  - intent: goodbye
+  - action: utter_goodbye
+  - intent: greet
+  - action: utter_greet
+  - intent: booking
+    entities:
+    - seatcount: '4'
+  - slot_was_set:
+    - seatcount: '4'
+  - action: utter_ask_bookingtime
+  - intent: inform
+    entities:
+    - bookingtime: 6pm
+  - slot_was_set:
+    - bookingtime: 6pm
+  - action: utter_ask_category
+  - intent: inform
+    entities:
+    - seatcount: '2'
+  - slot_was_set:
+    - seatcount: '2'
+  - action: utter_ask_bookingtime
+  - intent: inform
+    entities:
+    - bookingtime: 5pm
+  - slot_was_set:
+    - bookingtime: 5pm
+  - action: utter_ask_confirm_booking
+  - intent: affirm
+    entities:
+    - confirmation: yes please
+  - slot_was_set:
+    - confirmation: yes please
+  - intent: goodbye
+  - action: utter_goodbye

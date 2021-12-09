@@ -1,0 +1,96 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: false
+intents:
+- greet
+- inform
+- goodbye
+- affirm
+- bill
+- booking
+- deny
+- make_an_order
+- bot_challenge
+entities:
+- address
+- amount
+- bookingtime
+- confirmation
+- faq_respond
+- items
+- name
+- seatcount
+- section
+- size
+- type
+slots:
+  name:
+    type: text
+    influence_conversation: false
+  items:
+    type: list
+    influence_conversation: true
+  confirmation:
+    type: text
+    influence_conversation: true
+  seatcount:
+    type: float
+    influence_conversation: true
+    max_value: 1.0
+    min_value: 0.0
+  bookingtime:
+    type: float
+    influence_conversation: true
+    max_value: 1.0
+    min_value: 0.0
+  section:
+    type: categorical
+    influence_conversation: true
+    values: []
+responses:
+  utter_greet:
+  - text: Hi, how can I help you?
+  - text: Hey, {name}. how can I help you?
+  utter_goodbye:
+  - text: ' thank you for Booking . Bye!'
+  utter_order:
+  - text: What is your order?
+  utter_order_ready:
+  - text: Okay it will be arrive in 20 min
+  utter_address:
+  - text: what is your address?
+  utter_bill:
+  - text: your bill is 100$
+  utter_iamabot:
+  - text: I am a Book Reservation Bot
+  utter_ask_confirm_booking:
+  - text: Do you want to confirm the booking?
+  utter_ask_seatcount:
+  - text: how many seat you want to book
+  utter_ask_bookingtime:
+  - text: When would you like to book a reservation? (We are only open from 4pm to 10pm)
+  utter_ask_seatbooked:
+  - text: You have reserved 2 seats in our AC section for 7:30pm. Thanks!
+  utter_ask_category:
+  - text: Which section would you like to book
+    buttons:
+    - title: AC
+    - title: Non AC
+  utter_ask_confirm booking:
+  - text: Booking Confirm ! Are you want to reset
+  utter_slots_values:
+  - text: |
+      You've submitted the following answers:
+       - Bookingtype?: {utter_ask_category}
+       - Booking Time: {utter_ask_bookingtime}
+       - Seat: {utter_ask_seatcount}
+actions:
+- utter_address
+- utter_ask_bookingtime
+- utter_ask_category
+- utter_ask_confirm_booking
+- utter_bill
+- utter_goodbye
+- utter_greet
+- utter_order_ready
